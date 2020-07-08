@@ -1,0 +1,45 @@
+.img-blur {
+    filter:blur(15px);
+    overflow: hidden;
+    height: 230px;
+    position: relative;
+}
+
+.img-perfil {
+    width: 124px;
+    height: 124px;
+    border-radius: 50%;
+    margin-top: -90px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-header { 
+    margin-top: -75px;
+    background: white;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    // padding: 10px 20%;
+    padding: 10px 15%;
+    cursor: pointer;
+    // background: #5260ff;
+    color: #6a6a6a;
+}
+
+ion-input[type="file"] {
+    display: none;
+    font-family: inherit;
+}
+
+ion-input[type="file"]:focus {
+    display: none;
+    font-family: inherit;
+    border: 1px solid #ffba22;    
+}
+
+.icon-btn-img {
+    font-size: 24px;
+    margin-bottom: -5px;
+}

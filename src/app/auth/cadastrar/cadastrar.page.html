@@ -1,0 +1,49 @@
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <div class="ion-text-center">
+        <img class="logo-login" src="../../assets/img/logo-login.png">
+        <h1>Novo Perfil</h1>
+      </div>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="formularioUsuario" (ngSubmit)="cadastrarUsuario()">
+        <!-- NOME -->
+        <ion-item>
+          <ion-label position="floating">Nome</ion-label>
+          <ion-input formControlName="name" type="text"></ion-input>
+        </ion-item>
+
+        <!-- EMAIL -->
+        <ion-item>
+          <ion-label position="floating">E-mail</ion-label>
+          <ion-input formControlName="email" type="email"></ion-input>
+        </ion-item>
+
+        <!-- NOVA SENHA -->
+        <ion-item>
+          <ion-label position="floating">Nova Senha</ion-label>
+          <ion-input formControlName="password" type="password" placeholder="******"></ion-input>
+        </ion-item>
+
+        <!-- CONFIRMAR NOVA SENHA -->
+        <ion-item>
+          <ion-label position="floating">Confirmar Nova Senha</ion-label>
+          <ion-input formControlName="confimarSenha" type="password" placeholder="******"></ion-input>
+        </ion-item>
+
+        <br>
+        <ion-button type="submit" [disabled]="formularioUsuario.invalid" color="secondary" expand="full">
+          Cadastrar
+        </ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+  <div class="ion-text-center div-footer-login">
+    <a class="btn-cadastrar" (click)="login()">Efetuar login</a>
+
+    <br>
+    <br>
+    <p>Desenvolvido por O. M. M.</p>
+  </div>
+</ion-content>

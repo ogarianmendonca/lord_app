@@ -1,0 +1,37 @@
+.logo-login {
+    width: 50%;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 20%;
+    cursor: pointer;
+    background: #5260ff;
+    color: white;
+}
+
+ion-input[type="file"] {
+    display: none;
+    font-family: inherit;
+}
+
+ion-input[type="file"]:focus {
+    display: none;
+    font-family: inherit;
+    border: 1px solid #ffba22;    
+}
+
+.icon-btn-img {
+    font-size: 24px;
+    margin-bottom: -5px;
+}
+
+.div-footer-login {
+    margin-top: 10%;
+}
+
+.btn-cadastrar {
+    color: black;
+    font-size: 18px;
+    letter-spacing: 4px;
+}

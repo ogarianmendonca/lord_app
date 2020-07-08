@@ -1,0 +1,7 @@
+{
+  "name": "lordApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

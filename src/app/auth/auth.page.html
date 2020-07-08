@@ -1,0 +1,38 @@
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <div class="ion-text-center">
+        <img class="logo-login" src="../../assets/img/logo-login.png">
+        <h1><strong>Lord</strong> App</h1>
+      </div>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="formulario" novalidate>
+        <!-- EMAIL -->
+        <ion-item>
+          <ion-label position="floating">E-mail</ion-label>
+          <ion-input type="email" formControlName="email"></ion-input>
+        </ion-item>
+
+        <!-- SENHA -->
+        <ion-item>
+          <ion-label position="floating">Senha</ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+
+        <br>
+        <ion-button color="secondary" expand="full" [disabled]="formulario.invalid" (click)="logar()">
+          Entrar
+        </ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+  
+  <div class="ion-text-center div-footer-login">
+    <a class="btn-cadastrar" (click)="novoCadastro()">Cadastre-se</a>
+
+    <br>
+    <br>
+    <p>Desenvolvido por O. M. M.</p>
+  </div>
+</ion-content>

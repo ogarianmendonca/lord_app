@@ -1,0 +1,103 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Meu Perfil
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <div class="img-blur">
+      <img *ngIf="user?.imagem !== 'sem_imagem'" src="{{user?.imagem}}" />
+      <img *ngIf="user?.imagem === 'sem_imagem'" src="assets/img/default-avatar.png" />
+    </div>
+
+    <ion-card-header class="ion-text-center card-header">
+      <img class="img-perfil" *ngIf="user?.imagem !== 'sem_imagem'" src="{{user?.imagem}}" />
+      <img class="img-perfil" *ngIf="user?.imagem === 'sem_imagem'" src="assets/img/default-avatar.png" />
+      
+      <ion-card-title color="secondary">
+        <h2><strong>{{user?.name}}</strong></h2>
+      </ion-card-title>
+
+      <ion-card-subtitle color="dark">
+        <h4> {{user?.perfil['descricao']}}</h4>
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content class="ion-text-center">
+      <ion-text color="dark">
+        <h4>{{user?.email}}</h4>
+      </ion-text>
+
+      <ion-text color="dark">
+        <h4> Cadastrado em {{user?.created_at | date:'dd/MM/y'}}</h4>
+      </ion-text>
+
+      <br>
+      <ion-text [hidden]="user?.status == false" color="secondary">
+        Usuário Ativo
+      </ion-text>
+      <ion-text [hidden]="user?.status == true" color="danger">
+        Usuário Inativo
+      </ion-text>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Editar Perfil</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="formularioUsuario" (ngSubmit)="editarUsuario()" *ngIf="user">
+        <!-- NOME -->
+        <ion-item>
+          <ion-label position="floating">Nome</ion-label>
+          <ion-input formControlName="name" type="text"></ion-input>
+        </ion-item>
+
+        <!-- EMAIL -->
+        <ion-item>
+          <ion-label position="floating">E-mail</ion-label>
+          <ion-input formControlName="email" type="email"></ion-input>
+        </ion-item>
+
+        <!-- PERFIL -->
+        <ion-input formControlName="perfil_id" type="hidden"></ion-input>
+
+        <!-- STATUS -->
+        <ion-input formControlName="status" type="hidden"></ion-input>
+
+        <!-- NOVA SENHA -->
+        <ion-item>
+          <ion-label position="floating">Nova Senha</ion-label>
+          <ion-input formControlName="password" type="password" placeholder="******"></ion-input>
+        </ion-item>
+
+        <!-- CONFIRMAR NOVA SENHA -->
+        <ion-item>
+          <ion-label position="floating">Confirmar Nova Senha</ion-label>
+          <ion-input formControlName="confimarSenha" type="password" placeholder="******"></ion-input>
+        </ion-item>
+
+        <!-- IMAGEM DO PERFIL -->
+        <ion-item class="ion-text-center">
+          <label class="custom-file-upload">
+            <ion-icon name="camera-outline" class="icon-btn-img"></ion-icon>
+            <ion-input type="file" id="imagem" name="imagem" (change)="carregarImagem($event)"></ion-input>
+            Selecionar Imagem
+          </label>
+        </ion-item>
+
+        <br>
+        <ion-button type="submit" [disabled]="formularioUsuario.invalid" color="secondary" expand="full">
+          Salvar
+        </ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
