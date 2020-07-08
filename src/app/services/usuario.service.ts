@@ -34,7 +34,7 @@ export class UsuarioService {
    * Cadastra novo usuário
    */
   cadastrarUsuario(dados): Observable<Usuario> {
-    return this.http.post<Usuario>(environment.api_url + 'auth/create-user-mobile', dados, httpOptions);
+    return this.http.post<Usuario>(environment.api_url + 'auth/criar-usuario-mobile', dados, httpOptions);
   }
 
   /**
