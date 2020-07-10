@@ -6,45 +6,11 @@
     <ion-title>
       Página 3
     </ion-title>
-
-    <ion-buttons slot="primary">
-      <ion-button (click)="resetaJogo()">Resetar Jogo</ion-button>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="div-chapeu" 
-  [ngStyle]="{
-    'margin-top': sobeDesce+'px', 
-    'margin-left': lado+'px'
-  }">
-    <img class="img-chapeu" src="../../assets/img/logo-login.png">
-  </div>
-
-  <div class="div-tesoura">
-    <img class="img-tesoura" src="../../assets/img/tesoura.jpg">
-  </div>
-
-  <div class="div-macaco">
-    <img class="img-macaco" src="../../assets/img/img-macaco.jpg">
+  <div slot="fixed">
+    <h1>Página 3</h1>
   </div>
 </ion-content>
-
-<ion-footer class="ion-no-border ion-text-center">
-  <ion-button color="tertiary" (click)="subir()">
-    <ion-icon name="caret-up-outline"></ion-icon>
-  </ion-button>
-
-  <ion-button color="tertiary" (click)="descer()">
-    <ion-icon name="caret-down-outline"></ion-icon>
-  </ion-button>
-
-  <ion-button color="tertiary" (click)="esquerda()">
-    <ion-icon name="caret-back-outline"></ion-icon>
-  </ion-button>
-
-  <ion-button color="tertiary" (click)="direita()">
-    <ion-icon name="caret-forward-outline"></ion-icon>
-  </ion-button>
-</ion-footer>
