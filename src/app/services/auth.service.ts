@@ -1,7 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Usuario } from '../models/usuario';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -13,7 +12,7 @@ export class AuthService {
 
   atualizarPerfil = new EventEmitter<Usuario>();
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient) { }
 
   /**
    * Função para login
@@ -30,7 +29,7 @@ export class AuthService {
    * Função para verificar se o usuario está logado
    */
   verificaUsuarioLogado(): boolean {
-    return localStorage.getItem('token') ? true : false;
+    return !!localStorage.getItem('token');
   }
 
   /**
@@ -46,11 +45,11 @@ export class AuthService {
   getUsuarioAutenticado(): Observable<Usuario> {
     return this.http.get<Usuario>(environment.api_url + 'api/usuario/getUser')
       .pipe(tap(
-        (resp: Usuario) => {
+        (resp: any) => {
           // Usar a linha abaixo quando a imagem for salva em um repositorio e não no banco de dados
           // resp['usuario']['imagem'] = environment.api_url + resp['usuario']['imagem'];
-          localStorage.setItem('user', btoa(JSON.stringify(resp['usuario'])));
-          this.atualizarPerfil.emit(resp['usuario']);
+          localStorage.setItem('user', btoa(JSON.stringify(resp.usuario)));
+          this.atualizarPerfil.emit(resp.usuario);
         }));
   }
 

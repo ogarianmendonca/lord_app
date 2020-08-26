@@ -16,7 +16,7 @@ export class MenuPage implements OnInit {
 
   constructor(
     private router: Router,
-    private authService: AuthService, 
+    private authService: AuthService,
     private loadingsService: LoadingsService,
     private toastsService: ToastsService
   ) {}
@@ -33,12 +33,12 @@ export class MenuPage implements OnInit {
     this.loadingsService.showLoading();
 
     this.authService.getUsuarioAutenticado()
-    .subscribe((resp: Usuario) => {
-      this.user = resp['usuario'];
+    .subscribe((resp: any) => {
+      this.user = resp.usuario;
       this.loadingsService.hideLoading();
     }, (error: any) => {
       this.loadingsService.hideLoading();
-      this.toastsService.showToastWarning("Não foi possível carregar a página!");
+      this.toastsService.showToastWarning('Não foi possível carregar a página!');
     });
   }
 
@@ -49,7 +49,7 @@ export class MenuPage implements OnInit {
     this.authService.atualizarPerfil
     .subscribe((resp: Usuario) => {
       this.user = resp;
-      if(this.user.status == false) {
+      if (this.user.status === false) {
         this.authService.logout();
       }
     });

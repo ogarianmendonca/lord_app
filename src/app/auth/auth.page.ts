@@ -1,5 +1,5 @@
-import { ToastsService } from './../services/toasts.service';
-import { LoadingsService } from './../services/loadings.service';
+import { ToastsService } from '../services/toasts.service';
+import { LoadingsService } from '../services/loadings.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
@@ -12,14 +12,14 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./auth.page.scss']
 })
 export class AuthPage implements OnInit {
-  
+
   formulario: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
-    private authService: AuthService,
-    private router: Router,
-    private toastsService: ToastsService,
-    private loadingsService: LoadingsService
+              private authService: AuthService,
+              private router: Router,
+              private toastsService: ToastsService,
+              private loadingsService: LoadingsService
   ) { }
 
   ngOnInit() {
@@ -30,8 +30,8 @@ export class AuthPage implements OnInit {
   }
 
   /**
-  * Fazer Login
-  */
+   * Fazer Login
+   */
   logar() {
     this.loadingsService.showLoading();
 
@@ -45,10 +45,10 @@ export class AuthPage implements OnInit {
           this.toastsService.showToastWarning(errorResponse.error.message);
         } else if (errorResponse.error.message === 'Não autorizado!') {
           this.loadingsService.hideLoading();
-          this.toastsService.showToastWarning("E-mail e/ou senha inválidos!");
+          this.toastsService.showToastWarning('E-mail e/ou senha inválidos!');
         } else {
           this.loadingsService.hideLoading();
-          this.toastsService.showToastWarning("Não foi possível efetuar login!");
+          this.toastsService.showToastWarning('Não foi possível efetuar login!');
         }
       }
     );
@@ -60,5 +60,4 @@ export class AuthPage implements OnInit {
   novoCadastro() {
     this.router.navigate(['auth/cadastrar']);
   }
-
 }

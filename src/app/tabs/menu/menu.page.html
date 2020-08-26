@@ -3,8 +3,8 @@
         <ion-toolbar>
             <ion-item>
                 <ion-avatar slot="start">
-                    <img *ngIf="user?.imagem !== 'sem_imagem'" src="{{user?.imagem}}" />
-                    <img *ngIf="user?.imagem === 'sem_imagem'" src="assets/img/default-avatar.png" />
+                    <img *ngIf="user?.imagem !== 'sem_imagem'" src="{{user?.imagem}}"  alt=""/>
+                    <img *ngIf="user?.imagem === 'sem_imagem'" src="assets/img/default-avatar.png"  alt=""/>
                 </ion-avatar>
                 <ion-label>{{user?.name}}</ion-label>
             </ion-item>

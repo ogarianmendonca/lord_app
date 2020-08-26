@@ -15,7 +15,7 @@ export class LoadingsService {
    */
   async showLoading() {
     this.carregando = true;
-    const loading = await this.loadingController.create({
+    await this.loadingController.create({
       cssClass: 'my-custom-class',
       message: 'Carregando...'
     }).then(resp => {
@@ -32,7 +32,7 @@ export class LoadingsService {
    */
   async sairLoading() {
     this.carregando = true;
-    const loading = await this.loadingController.create({
+    await this.loadingController.create({
       cssClass: 'my-custom-class',
       message: 'Saindo...'
     }).then(resp => {
@@ -55,5 +55,4 @@ export class LoadingsService {
       }
     });
   }
-
 }

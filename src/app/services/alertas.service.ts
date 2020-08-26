@@ -21,5 +21,4 @@ export class AlertasService {
       resp.present();
     });
   }
-
 }

@@ -12,13 +12,13 @@
 <ion-content [fullscreen]="true">
   <ion-card>
     <div class="img-blur">
-      <img *ngIf="user?.imagem !== 'sem_imagem'" src="{{user?.imagem}}" />
-      <img *ngIf="user?.imagem === 'sem_imagem'" src="assets/img/default-avatar.png" />
+      <img *ngIf="user?.imagem !== 'sem_imagem'" src="{{user?.imagem}}"  alt=""/>
+      <img *ngIf="user?.imagem === 'sem_imagem'" src="assets/img/default-avatar.png"  alt=""/>
     </div>
 
     <ion-card-header class="ion-text-center card-header">
-      <img class="img-perfil" *ngIf="user?.imagem !== 'sem_imagem'" src="{{user?.imagem}}" />
-      <img class="img-perfil" *ngIf="user?.imagem === 'sem_imagem'" src="assets/img/default-avatar.png" />
+      <img class="img-perfil" *ngIf="user?.imagem !== 'sem_imagem'" src="{{user?.imagem}}"  alt=""/>
+      <img class="img-perfil" *ngIf="user?.imagem === 'sem_imagem'" src="assets/img/default-avatar.png"  alt=""/>
       
       <ion-card-title color="secondary">
         <h2><strong>{{user?.name}}</strong></h2>

@@ -8,7 +8,7 @@ import { AuthPage } from './auth.page';
 import { CadastrarPage } from './cadastrar/cadastrar.page';
 
 @NgModule({
-  imports: [    
+  imports: [
     IonicModule,
     FormsModule,
     CommonModule,

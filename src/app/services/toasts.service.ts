@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { ToastController } from '@ionic/angular';
-import { StringifyOptions } from 'querystring';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +19,7 @@ export class ToastsService {
       position: 'top',
       color: 'warning'
     });
-    toast.present();
+    await toast.present();
   }
 
   /**
@@ -34,7 +33,7 @@ export class ToastsService {
       position: 'top',
       color: 'success'
     });
-    toast.present();
+    await toast.present();
   }
 
 }

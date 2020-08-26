@@ -11,11 +11,10 @@ export class AppErrorHandle extends ErrorHandler {
 
     /**
      * Tratamento de erros de retorno do backend
-     * @param errorResponse
      */
     handleError(errorResponse: HttpErrorResponse | any) {
         if (errorResponse instanceof HttpErrorResponse) {
-            if (errorResponse.status === 401 && errorResponse.statusText === "Unauthorized") {
+            if (errorResponse.status === 401 && errorResponse.statusText === 'Unauthorized') {
                 this.redirecionaLogin();
             }
 

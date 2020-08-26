@@ -3,4 +3,3 @@ export interface Perfil {
     descricao: string;
     status: boolean;
   }
-  

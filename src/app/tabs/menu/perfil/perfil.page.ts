@@ -36,8 +36,8 @@ export class PerfilPage implements OnInit {
     this.loadingsService.showLoading();
 
     this.authService.getUsuarioAutenticado()
-      .subscribe((resp: Usuario) => {
-        this.user = resp['usuario'];
+      .subscribe((resp: any) => {
+        this.user = resp.usuario;
         this.validaFormulario(this.user);
         this.loadingsService.hideLoading();
       });
@@ -59,7 +59,7 @@ export class PerfilPage implements OnInit {
   }
 
   /**
-   * Carrega imagem 
+   * Carrega imagem
    */
   carregarImagem(event: any) {
     this.imagem = event.target.files;
@@ -72,36 +72,35 @@ export class PerfilPage implements OnInit {
     this.loadingsService.showLoading();
 
     if (this.formularioUsuario.value.password !== this.formularioUsuario.value.confimarSenha) {
-      this.toastsService.showToastWarning("As senhas não conferem!");
+      this.toastsService.showToastWarning('As senhas não conferem!');
       this.loadingsService.hideLoading();
       return false;
     }
 
-    const id = this.user['id'];
+    const id = this.user.id;
 
     if (!this.imagem) {
       this.usuarioService.editarUsuario(id, this.formularioUsuario.value).subscribe((resp: Usuario) => {
-        this.toastsService.showToastSuccess("Perfil editado com sucesso!");
+        this.toastsService.showToastSuccess('Perfil editado com sucesso!');
         this.loadingsService.hideLoading();
         this.buscarUsuarioLogado();
       }, (err) => {
-        this.toastsService.showToastWarning("Erro ao editar perfil!");
+        this.toastsService.showToastWarning('Erro ao editar perfil!');
         this.loadingsService.hideLoading();
-      })
+      });
     } else {
-      this.usuarioService.uploadImagem(this.imagem).subscribe(resImg => {
-        this.formularioUsuario.value.imagem = resImg['imagem'];
+      this.usuarioService.uploadImagem(this.imagem).subscribe((resImg: any) => {
+        this.formularioUsuario.value.imagem = resImg.imagem;
 
         this.usuarioService.editarUsuario(id, this.formularioUsuario.value).subscribe((resp: Usuario) => {
-          this.toastsService.showToastSuccess("Perfil editado com sucesso!");
+          this.toastsService.showToastSuccess('Perfil editado com sucesso!');
           this.loadingsService.hideLoading();
           this.buscarUsuarioLogado();
         }, (err) => {
-          this.toastsService.showToastWarning("Erro ao editar perfil!");
+          this.toastsService.showToastWarning('Erro ao editar perfil!');
           this.loadingsService.hideLoading();
-        })
+        });
       });
     }
   }
-
 }
