@@ -49,7 +49,7 @@ export class MenuPage implements OnInit {
     this.authService.atualizarPerfil
     .subscribe((resp: Usuario) => {
       this.user = resp;
-      if (this.user.status === false) {
+      if (this.user.status == false) {
         this.authService.logout();
       }
     });
