@@ -27,7 +27,7 @@ export class UsuarioService {
    * Lista os tipos de perfis
    */
   listarPerfis(): Observable<Perfil[]> {
-    return this.http.get<Perfil[]>(environment.api_url + 'api/perfil/buscarPerfis');
+    return this.http.get<Perfil[]>(environment.api_url + 'api/perfil/buscar-perfis');
   }
 
   /**

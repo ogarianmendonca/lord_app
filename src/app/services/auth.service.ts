@@ -43,7 +43,7 @@ export class AuthService {
    *  Busca dados de usuario autenticado na base
    */
   getUsuarioAutenticado(): Observable<Usuario> {
-    return this.http.get<Usuario>(environment.api_url + 'api/usuario/getUser')
+    return this.http.get<Usuario>(environment.api_url + 'api/usuario/get-user')
       .pipe(tap(
         (resp: any) => {
           // Usar a linha abaixo quando a imagem for salva em um repositorio e não no banco de dados
