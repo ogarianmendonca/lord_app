@@ -14,8 +14,7 @@ const routes: Routes = [
   {
     path: 'auth/login',
     component: AuthPage
-  }
-  ,
+  },
   {
     path: 'auth/cadastrar',
     component: CadastrarPage
